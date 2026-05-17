@@ -1,50 +1,56 @@
 # Nook Shell Philosophy
-## Core Principles of Human-Centric Adaptive Computing
 
-Nook Shell is an adaptive, stateful desktop shell platform designed for Wayland and built on top of the Hyprland compositor. It is engineered to align computer environment behaviors with the cognitive models of the human mind.
-
----
-
-## 1. What Nook Shell IS and IS NOT
-
-### Nook Shell IS:
-* **A Cognitive Layer**: A stateful extension to Wayland compositors that bridges the gap between active tiling systems and developer workflows.
-* **Human-Centric & Adaptive**: An environment that understands active task context, optimizing layout densities and focus nodes based on cognitive loads.
-* **System-Oriented**: Built using highly optimized backend engines (Rust `nookd` daemon) coupled with performant visual pipelines (Flutter layer-shell interfaces).
-* **Restrained**: Focused on high performance, minimal interface latency, and calm, functional aesthetics.
-
-### Nook Shell IS NOT:
-* **A Desktop Rice**: It is not a cosmetic theme, a collection of aesthetic configuration modifications, or an over-customized desktop layout.
-* **A Dotfiles Clone**: It is not a collection of personal configuration dumps or script scrapbooks.
-* **An Illogical Impulse Fork**: While it draws inspiration from the orchestration patterns of environments like Illogical Impulse, it is an independent, low-overhead native architectural design.
-* **A Visual Recreation**: It does not copy existing layouts superficially; it replaces old paradigms with high-performance, structured system pipelines.
+Nook Shell represents a paradigm shift in how we interact with our desktops. It is not just another custom shell or a collection of visual aesthetics; it is a unified platform for human-centric computing.
 
 ---
 
-## 2. Why Nook Shell Exists
+## What Nook Shell IS
 
-Traditional desktop environments operate on a **launch-and-forget** model. Launchers search static binaries, panels display raw system metrics, and window compositors tile applications in strict, state-agnostic grids. When a developer switches tasks, they must manually rebuild their spatial layout, open relevant files, restore terminal states, and re-establish their mental focus nodes.
-
-Nook Shell exists to transition the operating environment from **process orchestration** to **cognitive orchestration**. By introducing context awareness, system state memory, and a decoupled shell-compositor relationship, Nook Shell adapts visual layers and hotkey contexts around the user's active workflow—minimizing the cognitive overhead of desktop navigation.
+*   **A Human-Centric Adaptive Platform**: A desktop environment built with the user's focus, attention, and cognitive capacity as the primary resources to protect.
+*   **A Systems-Oriented Shell**: A robust orchestration system built on top of the Hyprland compositor and the Wayland protocol, utilizing native, lightweight components.
+*   **An Intentional Interface**: A shell that stays out of the user’s way until explicitly summoned, adapting dynamically to the user's physical and digital context.
+*   **A Resilient Environment**: A shell designed to fail gracefully, ensuring core system functionality remains operational even if high-level widgets or services crash.
 
 ---
 
-## 3. Core Design Principles
+## What Nook Shell IS NOT
 
-### Productivity Without Friction
-Friction manifests as latency—both mechanical (compositor render times, application launch delays) and cognitive (searching for active windows, locating shell commands, reconstructing workspaces). Nook Shell targets zero-latency mechanics using:
-* IPC protocols for direct shell-to-compositor state management.
-* High-framerate rendering pipelines decoupled from intensive system-scraping processes.
-* Predictive context indexing that surface task-relevant tools instantly.
+*   **A Dotfiles Fork**: It is not a repository of customized configurations or styling hacks copied from the internet.
+*   **A Rice Project**: It is not an exercise in visual decoration or aesthetic chasing at the expense of performance and stability.
+*   **An Illogical Impulse Clone**: It is not a visual recreation or a simple rebuild of the Illogical Impulse desktop.
+*   **A Visual Recreation**: It does not aim to visually emulate other platforms but rather to extract and clean their underlying architectural logic.
+*   **AI Buzzword Marketing**: It does not leverage generative AI for empty automation or hype-driven abstractions.
 
-### Calm Computing
-The desktop environment must respect human focus. Technology should recede into the background, remaining calm and passive until invoked:
-* **Visual Restraint**: No flashy, distracting animations or glowing gradients. Borders, panels, and sidebars utilize harmonized, low-contrast HSL scales that respect optical focus.
-* **On-Demand Activation**: Utilities like search launchers, sidebars, and control panels slide into the workspace on-demand and vanish instantly when focus shifts.
-* **Predictive, Non-Intrusive**: Adaptive systems suggest context rather than forcing layout shifts, preserving user agency.
+---
 
-### Preserving User Control
-Automation must never override intent. Nook Shell provides an adaptive environment but leaves final structural layout controls (such as window sizing, workspace swaps, and application staging) entirely to the user's explicit keyboard input. The shell guides and supports; it never dictates.
+## Core Computing Principles
 
-### Expressive but Restrained Interaction Design
-Every interaction—whether a touchpad swipe, a workspace transition, or a notification slide-in—follows physical, natural animation curves. Visual feedback is subtle, clean, and deliberate, creating a desktop that feels responsive and structurally alive without feeling chaotic or overdeveloped.
+### 1. Calm Computing
+A calm technology is one that informs but does not demand our focus. Nook Shell is designed to sit comfortably in the user's periphery, surfacing alerts and widgets only when they are highly relevant or explicitly requested. 
+*   **Visual Silence**: Dynamic elements, transitions, and status updates are muted, avoiding constant visual notifications or flashing indicators.
+*   **Perceptual Harmony**: Interfaces employ HSL-tailored colors and smooth, low-latency micro-animations to align with natural cognitive processing.
+
+### 2. Expressive Computing
+Computers should be highly responsive tools that let users express their unique workflows and styles.
+*   **Cascading Customization**: A robust system design that separates base configurations, custom user overrides, and dynamic shell parameters.
+*   **Contextual Aesthetics**: System palettes, fonts, and borders adapt naturally to selected wallpapers, active applications, or physical lighting environments.
+
+### 3. Adaptive but User-Controlled
+While the shell should dynamically adapt to context, the user must always retain absolute control.
+*   **No Black-Box Automation**: Adaptive features (like network-aware work safety censorship or widget placement) operate on clear, deterministic rules.
+*   **Implicit Signals, Explicit Commands**: The shell gathers context implicitly (e.g., active SSID, focused window class) but executes actions explicitly via user-approved keybinds, prefixes, or gestures.
+
+### 4. Productivity Without Friction
+Friction kills flow. Nook Shell focuses on streamlining input-to-action pathways.
+*   **Semantic Keyboarding**: Broad use of keyboard-driven interaction, single-stroke semantic launchers, and localized modifier-release triggers.
+*   **Grid and Page Orchestration**: Logical grouping of digital workspace structures (workspaces, panels, utilities) to minimize navigational keystrokes.
+
+### 5. Preserving User Agency
+Modern software frequently strips users of their choice under the guise of "user experience." Nook Shell rejects this.
+*   **Resiliency Layering**: Key systems use a tiered fallback model. If the sophisticated, dynamic QML launcher fails, the system immediately cascades to a lightweight fallback like `fuzzel`.
+*   **Data Sovereignty**: Configuration is fully local, human-readable, and highly structured (JSON/YAML), resisting cloud-dependent or closed abstractions.
+
+### 6. Shell Restraint and Minimalism
+Restraint is the ultimate sophistication in software engineering. Nook Shell avoids overengineering:
+*   **No Dependency Bloat**: Where a basic compositor keybind or a simple, five-line shell script works flawlessly, we do not build an asynchronous, daemonized service.
+*   **Efficiency First**: Shell loops, process spawning, and file system watches are minimized to keep CPU and memory utilization near zero at idle.
