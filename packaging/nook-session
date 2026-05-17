@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# /usr/local/bin/nook-session: Global session wrapper for Nook Shell
+# Dynamically delegates execution to the logged-in user's local session launcher.
+
+set -e
+
+USER_LAUNCHER="${HOME}/.config/nook/scripts/nook-session.sh"
+
+echo "Resolving Nook Shell session for user: ${USER}"
+echo "User Home: ${HOME}"
+
+if [ -f "${USER_LAUNCHER}" ]; then
+    echo "Delegating session launch to: ${USER_LAUNCHER}"
+    exec "${USER_LAUNCHER}"
+else
+    echo "Error: Local Nook session script not found at ${USER_LAUNCHER}" >&2
+    echo "Please run setup.sh inside your nook-environment repository." >&2
+    exit 1
+fi

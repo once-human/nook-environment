@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Nook Shell
+Comment=Human-centric adaptive desktop platform running on Hyprland
+Exec=/usr/local/bin/nook-session
+Type=Application
+DesktopNames=Hyprland
