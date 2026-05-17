@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+# nook-session: GDM session startup wrapper script for Nook Shell
+# Configures isolated environment boundaries, registers service daemons, and boots the compositor.
+
+set -euo pipefail
+
+# Route logs to Nook config directory
+LOG_FILE="${HOME}/.config/nook/nook.log"
+mkdir -p "$(dirname "$LOG_FILE")"
+exec > >(tee -i "$LOG_FILE") 2>&1
+
+echo "====================================================="
+echo "       Initializing Nook Shell Desktop Session       "
+echo "====================================================="
+echo "Time: $(date)"
+
+# --- 1. Export Wayland and Session Parameters ---
+export XDG_CURRENT_DESKTOP=Nook
+export XDG_SESSION_DESKTOP=Nook
+export XDG_SESSION_TYPE=wayland
+
+# GTK/Qt/SDL Graphics toolkit backend overrides
+export GDK_BACKEND="wayland,x11,*"
+export QT_QPA_PLATFORM="wayland;xcb"
+export SDL_VIDEODRIVER=wayland
+export CLUTTER_BACKEND=wayland
+
+# --- 2. Launch Nook Shell background daemon (nookd) ---
+if command -v nookd &>/dev/null; then
+    echo " -> Starting Nook daemon (nookd) services..."
+    nookd &
+else
+    echo " -> Nook daemon (nookd) not found in PATH; bypassing daemon."
+fi
+
+# --- 3. Execute isolated Hyprland session ---
+# Boots Hyprland with Nook's modular, independent configuration path.
+# This prevents any pollution or side-effects on your main stock config.
+NOOK_HYPR_CONFIG="${HOME}/.config/nook/hypr/hyprland.conf"
+
+if [[ -f "$NOOK_HYPR_CONFIG" ]]; then
+    echo " -> Launching compositor using Nook config: $NOOK_HYPR_CONFIG"
+    exec Hyprland --config "$NOOK_HYPR_CONFIG"
+else
+    echo "Error: Nook Hyprland config not found at $NOOK_HYPR_CONFIG"
+    echo "Falling back to standard Hyprland session..."
+    exec Hyprland
+fi

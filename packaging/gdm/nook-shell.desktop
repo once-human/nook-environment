@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Nook Shell
+Comment=A human-centric adaptive Linux desktop environment running on Hyprland
+Exec=nook-session
+Type=Application
+DesktopNames=Nook

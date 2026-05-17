@@ -91,9 +91,7 @@ fi
 echo -e "\nAdjusting helper script permissions..."
 chmod +x "${REPO_ROOT}/scripts/nook-reload.sh"
 chmod +x "${REPO_ROOT}/scripts/setup.sh"
-chmod +x "${REPO_ROOT}/scripts/nook-session.sh"
-chmod +x "${REPO_ROOT}/scripts/install-session.sh"
-echo -e " -> ${GREEN}Done:${NC} All developer helper and session scripts are now executable."
+echo -e " -> ${GREEN}Done:${NC} scripts/nook-reload.sh and scripts/setup.sh are now executable."
 
 echo -e "\n${GREEN}=====================================================${NC}"
 echo -e "${GREEN}    Setup completed successfully!                    ${NC}"
