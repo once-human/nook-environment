@@ -23,7 +23,15 @@ sleep 0.2
 
 waybar -c "${HOME}/.config/nook/waybar/config.jsonc" -s "${HOME}/.config/nook/waybar/style.css" > /dev/null 2>&1 &
 
-# 3. Trigger a modern notification if notify-send exists
+# 3. Restart Nook Quickshell Runtime
+echo " -> Restarting Nook Quickshell..."
+if [[ -f "${HOME}/.config/nook/scripts/nook-shell.sh" ]]; then
+    "${HOME}/.config/nook/scripts/nook-shell.sh"
+else
+    echo " -> WARNING: nook-shell.sh not found. Skipping Quickshell restart."
+fi
+
+# 4. Trigger a modern notification if notify-send exists
 if command -v notify-send &>/dev/null; then
     notify-send -t 2000 -u low -e "Nook Shell" "Environment reloaded successfully"
 fi

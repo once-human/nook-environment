@@ -18,3 +18,7 @@ alias nook-logs="tail -f ~/.config/nook/nook.log 2>/dev/null || journalctl -xe -
 alias nook-edit-hypr="nano ~/.config/nook/hypr/hyprland.conf"
 alias nook-edit-waybar="nano ~/.config/nook/waybar/config.jsonc"
 alias nook-edit-keybinds="nano ~/.config/nook/hypr/keybinds.conf"
+
+# Nook Shell Process Controls
+alias nook-shell-start="~/.config/nook/scripts/nook-shell.sh"
+alias nook-shell-restart="~/.config/nook/scripts/nook-shell.sh"
