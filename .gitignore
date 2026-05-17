@@ -1,0 +1,20 @@
+# Nook Shell Development Environment - Git Ignored Files
+
+# System & Application Logs
+nook.log
+*.log
+
+# Installation / Symlink Backups
+*.backup_*
+backup_*
+
+# Editor & System Files
+.DS_Store
+*~
+*.swp
+*.tmp
+
+# Local shell cache / history
+.histfile
+.history
+.direnv/

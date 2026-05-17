@@ -1,0 +1,13 @@
+# Nook Shell - Wofi Launcher Config
+show=drun
+width=35%
+height=40%
+location=center
+halign=fill
+valign=fill
+filter_rate=100
+allow_markup=true
+no_actions=true
+insensitive=true
+prompt=Search Apps...
+line_wrap=false

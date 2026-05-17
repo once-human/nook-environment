@@ -1,0 +1,80 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "Inter", "Outfit", "JetBrains Mono Nerd Font", sans-serif;
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: rgba(15, 15, 15, 0.85);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    color: #e0e0e0;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+#workspaces {
+    background: rgba(255, 255, 255, 0.04);
+    margin: 4px 8px;
+    padding: 0 4px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+#workspaces button {
+    padding: 0 12px;
+    margin: 3px 2px;
+    border-radius: 16px;
+    background: transparent;
+    color: #a0a0a0;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#workspaces button:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+}
+
+#workspaces button.active {
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    font-weight: bold;
+}
+
+#clock,
+#battery,
+#network,
+#pulseaudio {
+    background: rgba(255, 255, 255, 0.04);
+    padding: 0 12px;
+    margin: 4px 4px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    color: #d0d0d0;
+}
+
+#clock {
+    font-weight: 600;
+    color: #ffffff;
+}
+
+#battery.warning {
+    color: #ffb74d;
+}
+
+#battery.critical:not(.charging) {
+    color: #e57373;
+    animation-name: blink;
+    animation-duration: 0.8s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes blink {
+    to {
+        background-color: rgba(229, 115, 115, 0.2);
+        color: #ffffff;
+    }
+}
