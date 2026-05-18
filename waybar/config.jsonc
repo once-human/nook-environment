@@ -4,9 +4,15 @@
   "height": 36,
   "spacing": 4,
 
-  "modules-left": ["hyprland/workspaces"],
+  "modules-left": ["hyprland/workspaces", "custom/terminal"],
   "modules-center": ["clock"],
   "modules-right": ["pulseaudio", "network", "battery"],
+
+  "custom/terminal": {
+    "format": "",
+    "on-click": "kitty",
+    "tooltip": false
+  },
 
   "hyprland/workspaces": {
     "disable-scroll": true,

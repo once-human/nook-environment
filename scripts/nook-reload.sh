@@ -14,14 +14,15 @@ else
     echo " -> WARNING: hyprctl is not available. Skipping compositor reload."
 fi
 
-# 2. Restart Waybar
-echo " -> Restarting Waybar with Nook configurations..."
-killall waybar 2>/dev/null || true
-
-# Give it a fraction of a second to clean up the port / PID
-sleep 0.2
-
-waybar -c "${HOME}/.config/nook/waybar/config.jsonc" -s "${HOME}/.config/nook/waybar/style.css" > /dev/null 2>&1 &
+# 2. Restart Waybar (Only if Nook waybar is actually running to avoid hijacking main environment waybar)
+if pgrep -a waybar | grep -q 'nook/waybar'; then
+    echo " -> Restarting Waybar with Nook configurations..."
+    killall waybar 2>/dev/null || true
+    sleep 0.2
+    waybar -c "${HOME}/.config/nook/waybar/config.jsonc" -s "${HOME}/.config/nook/waybar/style.css" > /dev/null 2>&1 &
+else
+    echo " -> Skipping Waybar restart (Nook Waybar is not active in this session)."
+fi
 
 # 3. Restart Nook Quickshell Runtime
 echo " -> Restarting Nook Quickshell..."
