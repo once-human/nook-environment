@@ -1,0 +1,107 @@
+/**
+ * Nook Rofi Theme
+ * A premium, calm, and grounded warm-paper aesthetic launcher theme.
+ */
+
+configuration {
+    modi:                       "drun,run";
+    show-icons:                 true;
+    display-drun:               "";
+    display-run:                "";
+    drun-display-format:        "{name}";
+    font:                       "Outfit 13";
+}
+
+* {
+    bg-color:                    #F6F4EF;
+    bg-sec:                      #FBFAF7;
+    bg-hover:                    #EFECE5;
+    fg-color:                    #2E2E2B;
+    fg-sec:                      #66645E;
+    accent-color:                #2E2E2B;
+    border-color:                rgba(46, 46, 43, 0.06);
+}
+
+window {
+    width:                       600px;
+    x-offset:                    0px;
+    y-offset:                    0px;
+    anchor:                      center;
+    location:                    center;
+    
+    background-color:            @bg-color;
+    border:                      1px;
+    border-color:                @border-color;
+    border-radius:               28px;
+    
+    padding:                     24px;
+    spacing:                     0px;
+}
+
+mainbox {
+    background-color:            transparent;
+    orientation:                 vertical;
+    children:                    [ "inputbar", "listview" ];
+}
+
+inputbar {
+    background-color:            @bg-sec;
+    border:                      1px;
+    border-color:                @border-color;
+    border-radius:               16px;
+    padding:                     12px 18px;
+    spacing:                     12px;
+    text-color:                  @fg-color;
+    children:                    [ "prompt", "entry" ];
+}
+
+prompt {
+    background-color:            transparent;
+    text-color:                  @fg-sec;
+}
+
+entry {
+    background-color:            transparent;
+    text-color:                  @fg-color;
+    placeholder:                 "Search applications...";
+    placeholder-color:           @fg-sec;
+}
+
+listview {
+    background-color:            transparent;
+    columns:                     1;
+    lines:                       6;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    
+    spacing:                     6px;
+    margin:                      16px 0px 0px 0px;
+}
+
+element {
+    background-color:            transparent;
+    text-color:                  @fg-color;
+    border-radius:               12px;
+    padding:                     10px 14px;
+    spacing:                     12px;
+}
+
+element selected {
+    background-color:            @bg-hover;
+    text-color:                  @fg-color;
+}
+
+element-icon {
+    background-color:            transparent;
+    size:                        28px;
+    cursor:                      inherit;
+}
+
+element-text {
+    background-color:            transparent;
+    text-color:                  inherit;
+    vertical-align:              0.5;
+    cursor:                      inherit;
+}
