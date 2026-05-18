@@ -1,7 +1,7 @@
 # Nook Light Mode Colors
 general {
-    col.active_border = rgba(2e2e2b14) rgba(2e2e2b05) 45deg
-    col.inactive_border = rgba(2e2e2b05)
+    col.active_border = rgb(ffffff)
+    col.inactive_border = rgb(e1ded5)
 }
 decoration {
     shadow {
