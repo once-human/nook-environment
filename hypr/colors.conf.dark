@@ -1,0 +1,10 @@
+# Nook Dark Mode Colors
+general {
+    col.active_border = rgba(e5e2d926) rgba(e5e2d90a) 45deg
+    col.inactive_border = rgba(e5e2d90a)
+}
+decoration {
+    shadow {
+        color = rgba(15, 15, 15, 0.35)
+    }
+}

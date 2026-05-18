@@ -34,7 +34,7 @@ fi
 
 # 4. Trigger a modern notification if notify-send exists
 if command -v notify-send &>/dev/null; then
-    notify-send -t 2000 -u low -e "Nook Shell" "Environment reloaded successfully"
+    timeout 3 notify-send -t 2000 -u low -e "Nook Shell" "Environment reloaded successfully" &
 fi
 
 echo "==> Success! Nook Shell reloaded."

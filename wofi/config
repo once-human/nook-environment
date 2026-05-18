@@ -11,3 +11,5 @@ no_actions=true
 insensitive=true
 prompt=Search Apps...
 line_wrap=false
+show_images=true
+image_size=28

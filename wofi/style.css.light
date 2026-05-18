@@ -1,0 +1,69 @@
+/*
+ * Nook Wofi Theme - Light Mode
+ * A premium, calm, and grounded warm-paper aesthetic launcher theme.
+ */
+
+* {
+    font-family: "Outfit", "Inter", "Noto Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+window {
+    margin: 0;
+    border: 1.5px solid rgba(46, 46, 43, 0.08);
+    border-radius: 24px;
+    background-color: #F6F4EF;
+    box-shadow: 0 16px 40px rgba(46, 46, 43, 0.06);
+}
+
+#outer-box {
+    margin: 20px;
+    border: none;
+    background-color: transparent;
+}
+
+#input {
+    margin: 4px;
+    padding: 12px 18px;
+    border: 1px solid rgba(46, 46, 43, 0.06);
+    border-radius: 16px;
+    background-color: #FBFAF7;
+    color: #2E2E2B;
+    caret-color: #2E2E2B;
+    box-shadow: inset 0 2px 4px rgba(46, 46, 43, 0.02);
+}
+
+#input:focus {
+    border: 1.5px solid #2E2E2B;
+    box-shadow: 0 0 6px rgba(46, 46, 43, 0.08);
+}
+
+#scroll {
+    margin: 16px 4px 4px 4px;
+}
+
+#text {
+    margin: 4px 8px;
+    color: #2E2E2B;
+}
+
+#img {
+    margin: 0 8px 0 4px;
+}
+
+#entry {
+    margin: 4px 0;
+    padding: 8px 12px;
+    border-radius: 12px;
+    transition: all 0.15s ease-in-out;
+}
+
+#entry:selected {
+    background-color: #EFECE5;
+}
+
+#entry:selected #text {
+    color: #2E2E2B;
+    font-weight: 600;
+}

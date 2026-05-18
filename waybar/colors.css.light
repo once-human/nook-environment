@@ -1,0 +1,9 @@
+/* Nook Light Theme Colors for Waybar */
+@define-color bg-color #F6F4EF;
+@define-color bg-sec #FBFAF7;
+@define-color bg-hover #EFECE5;
+@define-color fg-color #2E2E2B;
+@define-color fg-sec #66645E;
+@define-color border-color rgba(46, 46, 43, 0.04);
+@define-color border-bar rgba(46, 46, 43, 0.05);
+@define-color hover-color rgba(46, 46, 43, 0.04);

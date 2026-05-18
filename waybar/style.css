@@ -1,3 +1,6 @@
+/* Import active theme color variables */
+@import "colors.css";
+
 * {
     border: none;
     border-radius: 0;
@@ -9,20 +12,20 @@
 
 /* Grounding main Waybar container in primary Nook paper white */
 window#waybar {
-    background: #F6F4EF;
-    border-bottom: 1px solid rgba(46, 46, 43, 0.05);
-    color: #2E2E2B;
+    background: @bg-color;
+    border-bottom: 1px solid @border-bar;
+    color: @fg-color;
     transition-property: background-color;
     transition-duration: 0.32s;
 }
 
 /* Workspace bubble controls - soft squircle rounded tray */
 #workspaces {
-    background: #FBFAF7;
+    background: @bg-sec;
     margin: 4px 8px;
     padding: 0 4px;
     border-radius: 12px;
-    border: 1px solid rgba(46, 46, 43, 0.04);
+    border: 1px solid @border-color;
 }
 
 #workspaces button {
@@ -30,36 +33,53 @@ window#waybar {
     margin: 3px 2px;
     border-radius: 9px;
     background: transparent;
-    color: #66645E; /* Secondary quiet ink warm-gray */
+    color: @fg-sec; /* Secondary quiet ink warm-gray */
     transition: all 0.22s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 #workspaces button:hover {
-    background: rgba(46, 46, 43, 0.04);
-    color: #2E2E2B;
+    background: @hover-color;
+    color: @fg-color;
 }
 
 #workspaces button.active {
-    background: #EFECE5; /* Nook sidebar neutral */
-    color: #2E2E2B;
+    background: @bg-hover; /* Nook sidebar neutral */
+    color: @fg-color;
     font-weight: bold;
 }
 
 /* Custom Interactive Terminal launcher button */
 #custom-terminal {
-    background: #FBFAF7;
+    background: @bg-sec;
     padding: 0 14px;
     margin: 4px 4px;
     border-radius: 12px;
-    border: 1px solid rgba(46, 46, 43, 0.04);
-    color: #2E2E2B; /* Grounding primary ink */
+    border: 1px solid @border-color;
+    color: @fg-color; /* Grounding primary ink */
     font-size: 14px;
     transition: all 0.22s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 #custom-terminal:hover {
-    background: #EFECE5; /* Nook sidebar neutral */
-    color: #2E2E2B;
+    background: @bg-hover; /* Nook sidebar neutral */
+    color: @fg-color;
+}
+
+/* Custom System-Wide Light/Dark Mode Switcher */
+#custom-theme-toggle {
+    background: @bg-sec;
+    padding: 0 14px;
+    margin: 4px 4px;
+    border-radius: 12px;
+    border: 1px solid @border-color;
+    color: @fg-color;
+    font-size: 14px;
+    transition: all 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+#custom-theme-toggle:hover {
+    background: @bg-hover;
+    color: @fg-color;
 }
 
 /* Standard system information modules - soft squircle paper bubbles */
@@ -67,18 +87,18 @@ window#waybar {
 #battery,
 #network,
 #pulseaudio {
-    background: #FBFAF7;
+    background: @bg-sec;
     padding: 0 12px;
     margin: 4px 4px;
     border-radius: 12px;
-    border: 1px solid rgba(46, 46, 43, 0.04);
-    color: #2E2E2B; /* Primary ink charcoal */
+    border: 1px solid @border-color;
+    color: @fg-color; /* Primary ink charcoal */
     transition: all 0.22s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 #clock {
     font-weight: 600;
-    color: #2E2E2B;
+    color: @fg-color;
 }
 
 /* Subtle physical battery warnings */

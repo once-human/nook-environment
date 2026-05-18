@@ -1,0 +1,9 @@
+/* Nook Dark Theme Colors for Waybar */
+@define-color bg-color #181816;
+@define-color bg-sec #20201D;
+@define-color bg-hover #2B2B28;
+@define-color fg-color #E5E2D9;
+@define-color fg-sec #A2A096;
+@define-color border-color rgba(229, 226, 217, 0.06);
+@define-color border-bar rgba(229, 226, 217, 0.08);
+@define-color hover-color rgba(229, 226, 217, 0.04);

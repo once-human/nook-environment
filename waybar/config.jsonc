@@ -6,12 +6,22 @@
 
   "modules-left": ["hyprland/workspaces", "custom/terminal"],
   "modules-center": ["clock"],
-  "modules-right": ["pulseaudio", "network", "battery"],
+  "modules-right": ["pulseaudio", "network", "battery", "custom/theme-toggle"],
 
   "custom/terminal": {
     "format": "",
     "on-click": "kitty",
     "tooltip": false
+  },
+
+  "custom/theme-toggle": {
+    "format": "{}",
+    "return-type": "json",
+    "exec": "~/.config/nook/scripts/theme-check.sh",
+    "on-click": "~/.config/nook/scripts/theme-toggle.sh",
+    "interval": "once",
+    "signal": 8,
+    "tooltip": true
   },
 
   "hyprland/workspaces": {
