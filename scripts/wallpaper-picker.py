@@ -3,7 +3,9 @@ import sys
 import os
 import gi
 gi.require_version('Gtk', '3.0')
-from gi.repository import Gtk
+from gi.repository import Gtk, GLib
+
+GLib.set_prgname("wallpaper-picker")
 
 def main():
     dialog = Gtk.FileChooserDialog(
