@@ -23,11 +23,26 @@ fi
 
 echo "==> Setting active wallpaper to: ${SELECTED_IMAGE}"
 
-# 3. Apply the wallpaper dynamically to all monitors in hyprpaper
-hyprctl hyprpaper wallpaper ",${SELECTED_IMAGE}" || {
-    notify-send -t 2000 -u critical -e "Nook Shell" "❌ Failed to set hyprpaper wallpaper!"
-    exit 1
-}
+# 3. Apply the wallpaper dynamically to the active shell and hyprpaper
+/home/onkar/.config/quickshell/ii/scripts/colors/switchwall.sh --image "${SELECTED_IMAGE}" || true
+
+# Control hyprpaper dynamically
+if pgrep -x hyprpaper >/dev/null; then
+    echo " -> Preloading selected wallpaper in hyprpaper..."
+    hyprctl hyprpaper preload "${SELECTED_IMAGE}" || true
+    echo " -> Setting active wallpaper on monitor eDP-1..."
+    hyprctl hyprpaper wallpaper "eDP-1,${SELECTED_IMAGE}" || true
+fi
+
+# Persist the configuration in the environment configuration file
+CONF_FILE="${HOME}/.config/nook/hypr/hyprpaper.conf"
+if [[ -f "${CONF_FILE}" ]]; then
+    echo " -> Persisting wallpaper path in hyprpaper.conf..."
+    cat > "${CONF_FILE}" << EOF
+preload = ${SELECTED_IMAGE}
+wallpaper = eDP-1,${SELECTED_IMAGE}
+EOF
+fi
 
 # 4. Notify of success with a gorgeous aesthetic notification
 notify-send -t 2000 -u low -e "Nook Shell" "🎨 Wallpaper updated smoothly!"
