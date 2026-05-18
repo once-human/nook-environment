@@ -41,6 +41,7 @@ if [[ -f "${CONF_FILE}" ]]; then
     cat > "${CONF_FILE}" << EOF
 preload = ${SELECTED_IMAGE}
 wallpaper = eDP-1,${SELECTED_IMAGE}
+splash = false
 EOF
 fi
 
