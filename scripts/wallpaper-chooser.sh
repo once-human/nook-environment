@@ -7,14 +7,17 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PICKER_SCRIPT="${SCRIPT_DIR}/wallpaper-picker.py"
 
 # 1. Run visual GTK photo picker
-if ! SELECTED_IMAGE=$("${PICKER_SCRIPT}" 2>/dev/null); then
+if ! SELECTED_IMAGE=$("${PICKER_SCRIPT}"); then
     echo "Wallpaper selection cancelled by user."
     exit 0
 fi
 
+# Ensure we extract only the last line (the pure file path) to filter out any GTK stdout noise
+SELECTED_IMAGE=$(tail -n 1 <<< "${SELECTED_IMAGE}")
+
 # 2. Check if selected file exists
 if [[ ! -f "${SELECTED_IMAGE}" ]]; then
-    notify-send -t 2000 -u critical -e "Nook Shell" "❌ Selected file does not exist!"
+    notify-send -t 2000 -u critical -e "Nook Shell" "❌ Selected file does not exist! (${SELECTED_IMAGE})"
     exit 1
 fi
 

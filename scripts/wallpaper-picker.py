@@ -13,10 +13,8 @@ def main():
         parent=None,
         action=Gtk.FileChooserAction.OPEN
     )
-    dialog.add_buttons(
-        Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL,
-        Gtk.STOCK_OPEN, Gtk.ResponseType.OK
-    )
+    dialog.add_button("Cancel", Gtk.ResponseType.CANCEL)
+    dialog.add_button("Open", Gtk.ResponseType.OK)
 
     # Filter for standard image formats
     filter_img = Gtk.FileFilter()
@@ -38,6 +36,7 @@ def main():
         dialog.set_current_folder(os.path.expanduser("~"))
 
     # Run modal loop
+    dialog.show_all()
     response = dialog.run()
     if response == Gtk.ResponseType.OK:
         filename = dialog.get_filename()
